@@ -6,7 +6,7 @@ body {
 
 #home-container {
     padding: 20px;
-    left: 60px;
+    margin-left: 40px;
 }
 
 #home-container h1 {
@@ -27,4 +27,5 @@ body {
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
+    width: 50%;
 }
