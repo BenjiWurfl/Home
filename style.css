@@ -1,20 +1,21 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-#home-container {
-    padding: 20px;
-    margin-left: 60px;
-}
-
-#home-container h1 {
+    font-family: 'Nunito', sans-serif; /* Beispiel für eine Google Font */
+    background-color: #f4f7f6;
     color: #333;
 }
 
-#home-container h2 {
-    color: #666;
+/* Hauptinhalt */
+#home-container {
+    margin-left: 260px; /* Anpassung basierend auf der Breite der Sidebar */
+    padding: 20px;
+}
+
+#home-container h1, #home-container h2 {
+    margin: 0;
+    padding-bottom: 20px;
+    color: #394263; /* Dunkelblau */
 }
 
 #home-container ul {
@@ -23,9 +24,23 @@ body {
 }
 
 #home-container li {
-    background-color: #f0f0f0;
+    background-color: #FFF;
     margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    width: 25%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: auto; /* Anpassung für Responsive Design */
+}
+
+/* Responsives Design */
+@media (max-width: 768px) {
+    .sidebar {
+        min-width: 0;
+        width: 0;
+        margin-left: -250px; /* Sidebar ausblenden */
+    }
+
+    #home-container {
+        margin-left: 20px;
+    }
 }
