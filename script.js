@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Setze den Vornamen des Benutzers
-    document.getElementById('user-firstname').textContent = 'Max'; // Beispielname, ersetze dies durch den tatsächlichen Vornamen
+    document.getElementById('user-firstname').textContent = 'Benjamin'; // Beispielname, ersetze dies durch den tatsächlichen Vornamen
 
     // Beispiel-Daten, diese sollten durch tatsächliche Daten aus Firestore ersetzt werden
     const exampleEvents = ['Termin 1', 'Termin 2', 'Termin 3'];
