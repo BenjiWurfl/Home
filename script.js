@@ -48,10 +48,18 @@ async function loadAmounts(){
     const user = auth.currentUser;
     if (user) {
         const projectsRef = collection(db, "users", user.uid, "projects");
-        const snapshot = await getCountFromServer(projectsRef);
+        const eventsRef = collection(db, "users", user.uid, "events");
+        const mindmapsRef = collection(db, "users", user.uid, "mindmaps");
 
-        const count = snapshot.data().count;
-        amountOfProjects.innerHTML = count;
+        const projectSnapshot = await getCountFromServer(projectsRef);
+        amountOfProjects.innerHTML = projectSnapshot.data().count();
+
+        const eventSnapshot = await getCountFromServer(eventsRef);
+        amountOfAppointments.innerHTML = eventSnapshot.data().count();
+
+        const mindmapSnapshot = await getCountFromServer(mindmapsRef);
+        amountOfMindmaps.innerHTML = mindmapSnapshot.data().count();
+
     }
 
 }
