@@ -37,7 +37,6 @@ onAuthStateChanged(auth, (user) => {
     } else {
         console.log("No user is signed in.");
     }
-
 });
 
 const amountOfProjects = document.querySelector('.num-of-Projects');
