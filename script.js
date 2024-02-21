@@ -45,10 +45,16 @@ const amountOfMindmaps = document.querySelector('.num-of-Mindmaps');
 
 async function loadAmounts(){
     const user = auth.currentUser;
-    const projectRef = collection(db, "users", user.uid, "projects");
-    projectRef.get().then(function(querySnapshot) {
-        console.log(querySnapshot.size);
-    });
+    if (user) {
+        const projectsRef = collection(db, "users", user.uid, "projects");
+        getDocs(projectsRef)
+            .then(querySnapshot => {
+                console.log(querySnapshot.get());
+            })
+            .catch(error => {
+                console.error("Error loading projects: ", error);
+            });
+    }
 
 }
 
