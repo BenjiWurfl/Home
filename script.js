@@ -30,6 +30,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
+const user = auth.currentUser;
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
