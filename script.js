@@ -51,7 +51,7 @@ async function loadAmounts(){
         const snapshot = await getCountFromServer(projectsRef);
 
         const count = snapshot.data().count;
-        console.log(count);
+        amountOfProjects.innerHTML = count;
     }
 
 }
