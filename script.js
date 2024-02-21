@@ -45,10 +45,6 @@ const amountOfProjects = document.querySelector('.num-of-Projects');
 const amountOfAppointments = document.querySelector('.num-of-Appointments');
 const amountOfMindmaps = document.querySelector('.num-of-Mindmaps');
 
-const projectsRef = collection(db, "users", currentUser.uid, "projects");
-const eventsRef = collection(db, "users", currentUser.uid, "events");
-const mindmapsRef = collection(db, "users", currentUser.uid, "mindmaps");
-
 let projectsArr =  [];
 let eventsArr = [];
 let mindmapsArr = [];
@@ -108,6 +104,7 @@ function fillTbodyMindMaps(index){
 function loadRecentProjectsIntoArrays() {
     const user = auth.currentUser;
 
+    const projectsRef = collection(db, "users", user.uid, "projects");
     getDocs(projectsRef.orderBy("dueDate", "desc").limit(3))
         .then(querySnapshot => {
             projectsArr = []; // Clear the projects array before populating it again
@@ -122,6 +119,8 @@ function loadRecentProjectsIntoArrays() {
             console.error("Error loading projects: ", error);
         });
 
+
+    const eventsRef = collection(db, "users", user.uid, "events");
     getDocs(eventsRef.where("date", ">", new Date()).orderBy("date", "asc").limit(3))
         .then(querySnapshot => {
             eventsArr = []; // Clear the projects array before populating it again
@@ -135,6 +134,7 @@ function loadRecentProjectsIntoArrays() {
             console.error("Error loading events: ", error);
         });
 
+    const mindmapsRef = collection(db, "users", user.uid, "mindmaps");
     getDocs(mindmapsRef.limit(3))
         .then(querySnapshot => {
             mindmapsArr = []; // Clear the projects array before populating it again
