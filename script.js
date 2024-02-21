@@ -7,7 +7,8 @@ import {
     getDoc,
     getDocs,
     getFirestore,
-    updateDoc
+    updateDoc,
+    getCountFromServer
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
@@ -47,13 +48,10 @@ async function loadAmounts(){
     const user = auth.currentUser;
     if (user) {
         const projectsRef = collection(db, "users", user.uid, "projects");
-        getDocs(projectsRef)
-            .then(querySnapshot => {
-                console.log(querySnapshot.get());
-            })
-            .catch(error => {
-                console.error("Error loading projects: ", error);
-            });
+        const snapshot = await getCountFromServer(projectsRef);
+
+        const count = snapshot.data().count;
+        console.log(count);
     }
 
 }
