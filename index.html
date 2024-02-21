@@ -8,6 +8,7 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <link href="./output.css" rel="stylesheet">
 
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -107,28 +108,181 @@
 
     <section class="home">
 
-        <!-- Kalender-Inhalt -->
-        <div id="home-container">
-            <h1 id="welcome-message">Willkommen <span id="user-firstname">[Vorname]</span>!</h1>
-            <section id="calendar-section">
-                <h2>Termine</h2>
-                <ul id="calendar-list">
-                    <!-- Termine werden hier eingefügt -->
-                </ul>
-            </section>
-            <section id="notes-section">
-                <h2>Projekte/Notizen</h2>
-                <ul id="projects-list">
-                    <!-- Projekte werden hier eingefügt -->
-                </ul>
-            </section>
-            <section id="mindmaps-section">
-                <h2>MindMaps</h2>
-                <ul id="mindmaps-list">
-                    <!-- MindMaps werden hier eingefügt -->
-                </ul>
-            </section>
+        <div class="p-6">
+            <div class="col-span-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 text-center">
+                <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+                    <div class="text-2xl font-bold text-[#3019bd]">Welcome!</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+                    <div class="flex justify-between mb-6">
+                        <div>
+                            <div class="flex items-center mb-1">
+                                <div class="num-of-Projects text-2xl font-semibold">2</div>
+                            </div>
+                            <div class="text-md font-medium text-gray-400">Projects</div>
+
+                        </div>
+                    </div>
+
+                    <a href="https://benjiwurfl.github.io/Notes/" class="text-[#3019bd] font-medium text-sm hover:text-red-800">View</a>
+                </div>
+                <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+                    <div class="flex justify-between mb-4">
+                        <div>
+                            <div class="flex items-center mb-1">
+                                <div class="num-of-Appointments text-2xl font-semibold">100</div>
+                            </div>
+                            <div class="text-sm font-medium text-gray-400">Appointments</div>
+                        </div>
+                    </div>
+                    <a href="https://benjiwurfl.github.io/" class="text-[#3019bd] font-medium text-sm hover:text-red-800">View</a>
+                </div>
+                <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+                    <div class="flex justify-between mb-6">
+                        <div>
+                            <div class="num-of-Mindmaps text-2xl font-semibold mb-1">17</div>
+                            <div class="text-sm font-medium text-gray-400">MindMaps</div>
+                        </div>
+                    </div>
+                    <a href="https://benjiwurfl.github.io/MindMaps/" class="text-[#3019bd] font-medium text-sm hover:text-red-800">View</a>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
+                    <div class="flex justify-between mb-4 items-start">
+                        <div class="font-medium">Last Projects</div>
+                    </div>
+                    <div class="overflow-hidden">
+                        <table class="w-full min-w-[540px]">
+                            <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">Lorem Ipsum</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">02-02-2024</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-gray-600 text-sm font-medium ml-2 truncate">Lorem Ipsum</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">02-02-2024</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">17.45</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-gray-600 text-sm font-medium ml-2 truncate">Lorem Ipsum</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">02-02-2024</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">17.45</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
+                    <div class="flex justify-between mb-4 items-start">
+                        <div class="font-medium">Next Appointments</div>
+                    </div>
+                    <div class="overflow-hidden">
+                        <table class="w-full min-w-[540px]">
+                            <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-gray-600 text-sm font-medium ml-2 truncate">Lorem Ipsum</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">02-02-2024</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">17.45</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-gray-600 text-sm font-medium ml-2 truncate">Lorem Ipsum</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">02-02-2024</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">17.45</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-gray-600 text-sm font-medium ml-2 truncate">Lorem Ipsum</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">02-02-2024</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">17.45</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
+                    <div class="flex justify-between mb-4 items-start">
+                        <div class="font-medium">Last MindMaps</div>
+                    </div>
+                    <div class="overflow-hidden">
+                        <table class="w-full min-w-[540px]">
+                            <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-gray-600 text-sm font-medium ml-2 truncate">Lorem Ipsum</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">02-02-2024</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">17.45</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-gray-600 text-sm font-medium ml-2 truncate">Lorem Ipsum</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">02-02-2024</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">17.45</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-gray-600 text-sm font-medium ml-2 truncate">Lorem Ipsum</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">02-02-2024</span>
+                                </td>
+                                <td class="py-2 px-4 border-b border-b-gray-50">
+                                    <span class="text-[13px] font-medium text-gray-400">17.45</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
         <script type="module" src="script.js"></script>
 </body>
 </html>
