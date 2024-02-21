@@ -45,9 +45,9 @@ const amountOfMindmaps = document.querySelector('.num-of-Mindmaps');
 
 async function loadAmounts(){
     const user = auth.currentUser;
-    const projectRef = collection(db, "users", user.id, "projects");
-    const snapshot = await getCountFromServer(projectRef);
-    console.log('count: ', snapshot.data().count);
+    const projectRef = collection(db, "users", user.uid, "projects");
+    console.log("Amount of Projects: ", projectRef.count().get());
+    amountOfProjects.innerHTML = await projectRef.count().get();
 }
 
 //Navbar
