@@ -52,13 +52,13 @@ async function loadAmounts(){
         const mindmapsRef = collection(db, "users", user.uid, "mindmaps");
 
         const projectSnapshot = await getCountFromServer(projectsRef);
-        amountOfProjects.innerHTML = projectSnapshot.data().count();
+        amountOfProjects.innerHTML = projectSnapshot.data().count;
 
         const eventSnapshot = await getCountFromServer(eventsRef);
-        amountOfAppointments.innerHTML = eventSnapshot.data().count();
+        amountOfAppointments.innerHTML = eventSnapshot.data().count;
 
         const mindmapSnapshot = await getCountFromServer(mindmapsRef);
-        amountOfMindmaps.innerHTML = mindmapSnapshot.data().count();
+        amountOfMindmaps.innerHTML = mindmapSnapshot.data().count;
 
     }
 
