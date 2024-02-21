@@ -30,10 +30,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
-const user = auth.currentUser;
+let currentUser;
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
+        currentUser = user;
         loadDashboardData();
     } else {
         console.log("No user is signed in.");
@@ -44,9 +45,9 @@ const amountOfProjects = document.querySelector('.num-of-Projects');
 const amountOfAppointments = document.querySelector('.num-of-Appointments');
 const amountOfMindmaps = document.querySelector('.num-of-Mindmaps');
 
-const projectsRef = collection(db, "users", user.uid, "projects");
-const eventsRef = collection(db, "users", user.uid, "events");
-const mindmapsRef = collection(db, "users", user.uid, "mindmaps");
+const projectsRef = collection(db, "users", currentUser.uid, "projects");
+const eventsRef = collection(db, "users", currentUser.uid, "events");
+const mindmapsRef = collection(db, "users", currentUser.uid, "mindmaps");
 
 let projectsArr =  [];
 let eventsArr = [];
