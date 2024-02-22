@@ -68,7 +68,7 @@ function loadDataIntoDOM(){
 }
 
 function fillTbodyProjects(index){
-    if(index <= projectsArr.length) {
+    if(projectsArr[index] !== null) {
         console.log("Array: ", projectsArr[index])
         tbodyOfProjects.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
@@ -82,7 +82,7 @@ function fillTbodyProjects(index){
 }
 
 function fillTbodyEvents(index){
-    if(index <= eventsArr.length) {
+    if(eventsArr[index] !== null) {
         tbodyOfEvents.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
             '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + eventsArr[index].title + '</span>\n' +
@@ -95,7 +95,7 @@ function fillTbodyEvents(index){
 }
 
 function fillTbodyMindMaps(index){
-    if(index <= mindmapsArr.length) {
+    if(mindmapsArr[index] !== null) {
         tbodyOfMindmaps.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
             '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + mindmapsArr[index].name + '</span>\n' +
