@@ -556,6 +556,14 @@ video {
   grid-column: span 3 / span 3;
 }
 
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
 .mb-0 {
   margin-bottom: 0px;
 }

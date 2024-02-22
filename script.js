@@ -66,6 +66,9 @@ function loadDataIntoDOM(){
 }
 
 function fillTbodyProjects(){
+    if(projectsArr.length > 3){
+        projectsArr.slice(0,3)
+    }
     for(let i = 0; i < projectsArr.length; i++) {
         tbodyOfProjects.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
@@ -79,6 +82,9 @@ function fillTbodyProjects(){
 }
 
 function fillTbodyEvents(){
+    if(eventsArr.length > 3){
+        eventsArr.slice(0,3)
+    }
     for(let i = 0; i < eventsArr.length; i++) {
         tbodyOfEvents.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
@@ -92,6 +98,9 @@ function fillTbodyEvents(){
 }
 
 function fillTbodyMindMaps(){
+    if(mindmapsArr.length > 3){
+        mindmapsArr.slice(0,3)
+    }
     for(let i = 0; i < mindmapsArr.length; i++) {
         tbodyOfMindmaps.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
