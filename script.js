@@ -161,13 +161,13 @@ function loadAmounts()
     if (user) {
 
         const projectSnapshot = getCountFromServer(projectsRef);
-        amountOfProjects.innerHTML = projectSnapshot.data().count;
+        amountOfProjects.innerHTML = projectSnapshot;
 
         const eventSnapshot = getCountFromServer(eventsRef);
-        amountOfAppointments.innerHTML = eventSnapshot.data().count;
+        amountOfAppointments.innerHTML = eventSnapshot;
 
         const mindmapSnapshot = getCountFromServer(mindmapsRef);
-        amountOfMindmaps.innerHTML = mindmapSnapshot.data().count;
+        amountOfMindmaps.innerHTML = mindmapSnapshot;
     }
 
 }
