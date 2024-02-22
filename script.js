@@ -84,6 +84,12 @@ function fillTbodyProjects(){
 
 function fillTbodyEvents(){
 
+
+
+    eventsArr = eventsArr.filter(function (event) {
+        return event.date.toDate() >= new Date();
+    });
+
     eventsArr = eventsArr.sort(function(a, b) {
         // Konvertiere Timestamps in Datum-Objekte
         const dateA = a.date.toDate();
@@ -94,10 +100,6 @@ function fillTbodyEvents(){
         if (dateA < dateB) return -1;
         return 0;
     });
-
-    eventsArr = eventsArr.filter(function (event) {
-        return event.date.toDate() >= new Date();
-    })
 
     if(eventsArr.length > 3){
         eventsArr = eventsArr.slice(0,3)
