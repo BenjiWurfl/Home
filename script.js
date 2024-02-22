@@ -110,7 +110,7 @@ function loadRecentProjectsIntoArrays() {
     const mindmapsRef = collection(db, "users", user.uid, "mindmaps");
 
     // Project Query
-    getDocs(projectsRef.orderBy("dueDate", "desc").limit(3))
+    getDocs(projectsRef)
         .then(projectSnapshot => {
             projectsArr = []; // Clear the projects array before populating it again
             projectSnapshot.forEach(doc => {
@@ -124,7 +124,7 @@ function loadRecentProjectsIntoArrays() {
             console.error("Error loading projects: ", error);
         })
         // Event Query
-        .then(() => getDocs(eventsRef.where("date", ">", new Date()).orderBy("date", "asc").limit(3)))
+        .then(() => getDocs(eventsRef))
         .then(eventSnapshot => {
             eventsArr = []; // Clear the events array before populating it again
             eventSnapshot.forEach(doc => {
@@ -137,7 +137,7 @@ function loadRecentProjectsIntoArrays() {
             console.error("Error loading events: ", error);
         })
         // Mindmap Query
-        .then(() => getDocs(mindmapsRef.limit(3)))
+        .then(() => getDocs(mindmapsRef))
         .then(mindmapSnapshot => {
             mindmapsArr = []; // Clear the mindmaps array before populating it again
             mindmapSnapshot.forEach(doc => {
@@ -151,8 +151,7 @@ function loadRecentProjectsIntoArrays() {
         });
 }
 
-async function loadAmounts()
-{
+async function loadAmounts() {
     const user = auth.currentUser;
 
     const projectsRef = collection(db, "users", user.uid, "projects");
