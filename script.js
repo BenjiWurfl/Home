@@ -60,49 +60,49 @@ function loadDashboardData(){
 }
 
 function loadDataIntoDOM(){
-    for (let i = 0; i < 3; i++){
         fillTbodyProjects(i);
         fillTbodyEvents(i);
         fillTbodyMindMaps(i);
-    }
 }
 
 function fillTbodyProjects(index){
-    if(projectsArr[index]) { return; }
+    for(let i = 0; i < projectsArr.length; i++) {
         console.log("Array: ", projectsArr[index])
         tbodyOfProjects.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-            '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + projectsArr[index].title + '</span>\n' +
+            '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + projectsArr[i].title + '</span>\n' +
             '                                </td>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-            '                                    <span class="text-[13px] font-medium text-gray-400">' + projectsArr[index].dueDate.toDate().toLocaleDateString("en-us") + '</span>\n' +
+            '                                    <span class="text-[13px] font-medium text-gray-400">' + projectsArr[i].dueDate.toDate().toLocaleDateString("en-us") + '</span>\n' +
             '                                </td>\n' +
             '                            </tr>'
+    }
 }
 
 function fillTbodyEvents(index){
-    if(eventsArr[index]) { return; }
+    for(let i = 0; i < eventsArr.length; i++) {
         tbodyOfEvents.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-            '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + eventsArr[index].title + '</span>\n' +
+            '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + eventsArr[i].title + '</span>\n' +
             '                                </td>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-            '                                    <span class="text-[13px] font-medium text-gray-400">' + eventsArr[index].date.toDate().toLocaleDateString("en-us") + '</span>\n' +
+            '                                    <span class="text-[13px] font-medium text-gray-400">' + eventsArr[i].date.toDate().toLocaleDateString("en-us") + '</span>\n' +
             '                                </td>\n' +
             '                            </tr>'
+    }
 }
 
 function fillTbodyMindMaps(index){
-    if(mindmapsArr[index]) { return; }
+    for(let i = 0; i < mindmapsArr.length; i++) {
         tbodyOfMindmaps.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-            '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + mindmapsArr[index].name + '</span>\n' +
+            '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + mindmapsArr[i].name + '</span>\n' +
             '                                </td>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
             '                                    <span class="text-[13px] font-medium text-gray-400"></span>\n' +
             '                                </td>\n' +
             '                            </tr>'
-
+    }
 }
 
 function loadRecentProjectsIntoArrays(){
