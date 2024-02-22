@@ -68,37 +68,43 @@ function loadDataIntoDOM(){
 }
 
 function fillTbodyProjects(index){
-    console.log("Array: ", projectsArr[index])
-    tbodyOfProjects.innerHTML += '<tr>\n' +
-        '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-        '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + projectsArr[index].title + '</span>\n' +
-        '                                </td>\n' +
-        '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-        '                                    <span class="text-[13px] font-medium text-gray-400">' + projectsArr[index].dueDate.toDate().toLocaleDateString("en-us") + '</span>\n' +
-        '                                </td>\n' +
-        '                            </tr>'
+    if(index <= projectsArr.length) {
+        console.log("Array: ", projectsArr[index])
+        tbodyOfProjects.innerHTML += '<tr>\n' +
+            '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
+            '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + projectsArr[index].title + '</span>\n' +
+            '                                </td>\n' +
+            '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
+            '                                    <span class="text-[13px] font-medium text-gray-400">' + projectsArr[index].dueDate.toDate().toLocaleDateString("en-us") + '</span>\n' +
+            '                                </td>\n' +
+            '                            </tr>'
+    }
 }
 
 function fillTbodyEvents(index){
-    tbodyOfEvents.innerHTML += '<tr>\n' +
-        '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-        '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + eventsArr[index].title + '</span>\n' +
-        '                                </td>\n' +
-        '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-        '                                    <span class="text-[13px] font-medium text-gray-400">' + eventsArr[index].date.toDate().toLocaleDateString("en-us") + '</span>\n' +
-        '                                </td>\n' +
-        '                            </tr>'
+    if(index <= eventsArr.length) {
+        tbodyOfEvents.innerHTML += '<tr>\n' +
+            '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
+            '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + eventsArr[index].title + '</span>\n' +
+            '                                </td>\n' +
+            '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
+            '                                    <span class="text-[13px] font-medium text-gray-400">' + eventsArr[index].date.toDate().toLocaleDateString("en-us") + '</span>\n' +
+            '                                </td>\n' +
+            '                            </tr>'
+    }
 }
 
 function fillTbodyMindMaps(index){
-    tbodyOfMindmaps.innerHTML += '<tr>\n' +
-        '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-        '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + mindmapsArr[index].name + '</span>\n' +
-        '                                </td>\n' +
-        '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-        '                                    <span class="text-[13px] font-medium text-gray-400"></span>\n' +
-        '                                </td>\n' +
-        '                            </tr>'
+    if(index <= mindmapsArr.length) {
+        tbodyOfMindmaps.innerHTML += '<tr>\n' +
+            '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
+            '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + mindmapsArr[index].name + '</span>\n' +
+            '                                </td>\n' +
+            '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
+            '                                    <span class="text-[13px] font-medium text-gray-400"></span>\n' +
+            '                                </td>\n' +
+            '                            </tr>'
+    }
 }
 
 function loadRecentProjectsIntoArrays(){
