@@ -60,12 +60,12 @@ function loadDashboardData(){
 }
 
 function loadDataIntoDOM(){
-        fillTbodyProjects(i);
-        fillTbodyEvents(i);
-        fillTbodyMindMaps(i);
+        fillTbodyProjects();
+        fillTbodyEvents();
+        fillTbodyMindMaps();
 }
 
-function fillTbodyProjects(index){
+function fillTbodyProjects(){
     for(let i = 0; i < projectsArr.length; i++) {
         console.log("Array: ", projectsArr[index])
         tbodyOfProjects.innerHTML += '<tr>\n' +
@@ -79,7 +79,7 @@ function fillTbodyProjects(index){
     }
 }
 
-function fillTbodyEvents(index){
+function fillTbodyEvents(){
     for(let i = 0; i < eventsArr.length; i++) {
         tbodyOfEvents.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
@@ -92,7 +92,7 @@ function fillTbodyEvents(index){
     }
 }
 
-function fillTbodyMindMaps(index){
+function fillTbodyMindMaps(){
     for(let i = 0; i < mindmapsArr.length; i++) {
         tbodyOfMindmaps.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
