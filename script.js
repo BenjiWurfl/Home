@@ -67,6 +67,17 @@ function loadDataIntoDOM(){
 
 function fillTbodyProjects(){
 
+    projectsArr = projectsArr.sort(function(a, b) {
+        // Konvertiere Timestamps in Datum-Objekte
+        const dateA = a.dueDate.toDate();
+        const dateB = b.dueDate.toDate();
+
+        // Vergleiche die Daten
+        if (dateA < dateB) return 1;
+        if (dateA > dateB) return -1;
+        return 0;
+    });
+
     if(projectsArr.length > 3){
         projectsArr = projectsArr.slice(0,3)
     }
