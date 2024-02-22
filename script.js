@@ -74,7 +74,7 @@ function fillTbodyProjects(index){
         '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + projectsArr[index].title + '</span>\n' +
         '                                </td>\n' +
         '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-        '                                    <span class="text-[13px] font-medium text-gray-400">' + projectsArr[index].dueDate + '</span>\n' +
+        '                                    <span class="text-[13px] font-medium text-gray-400">' + projectsArr[index].dueDate.toDate() + '</span>\n' +
         '                                </td>\n' +
         '                            </tr>'
 }
@@ -85,7 +85,7 @@ function fillTbodyEvents(index){
         '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + eventsArr[index].title + '</span>\n' +
         '                                </td>\n' +
         '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
-        '                                    <span class="text-[13px] font-medium text-gray-400">' + eventsArr[index].date + '</span>\n' +
+        '                                    <span class="text-[13px] font-medium text-gray-400">' + eventsArr[index].date.toDate() + '</span>\n' +
         '                                </td>\n' +
         '                            </tr>'
 }
@@ -113,7 +113,7 @@ function loadRecentProjectsIntoArrays(){
         .then(querySnapshot => {
             querySnapshot.forEach(doc => {
                 const projectData = doc.data();
-                const project = {title: projectData.title, dueDate: projectData.dueDate.toDate()};
+                const project = {title: projectData.title, dueDate: projectData.dueDate};
 
                 projectsArr.push(project);
             });
