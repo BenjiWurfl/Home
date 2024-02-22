@@ -69,6 +69,7 @@ function loadDataIntoDOM(){
 }
 
 function fillTbodyProjects(index){
+    console.log(projectsArr[index]);
     tbodyOfProjects.innerHTML += '<tr>\n' +
         '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
         '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + projectsArr[index].title + '</span>\n' +
