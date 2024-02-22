@@ -95,9 +95,14 @@ function fillTbodyEvents(){
         return 0;
     });
 
+    eventsArr = eventsArr.filter(function (event) {
+        return event.date.toDate() >= new Date();
+    })
+
     if(eventsArr.length > 3){
         eventsArr = eventsArr.slice(0,3)
     }
+
     for(let i = 0; i < eventsArr.length; i++) {
         tbodyOfEvents.innerHTML += '<tr>\n' +
             '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
