@@ -120,7 +120,6 @@ function loadRecentProjectsIntoArrays(){
 
                 projectsArr.push(project);
             });
-            updatePinnedItems();
         })
         .catch(error => {
             console.error("Error loading projects: ", error);
