@@ -67,7 +67,7 @@ function loadDataIntoDOM(){
 
 function fillTbodyProjects(){
     if(projectsArr.length > 3){
-        projectsArr.slice(0,3)
+        projectsArr = projectsArr.slice(0,3)
     }
     for(let i = 0; i < projectsArr.length; i++) {
         tbodyOfProjects.innerHTML += '<tr>\n' +
@@ -83,7 +83,7 @@ function fillTbodyProjects(){
 
 function fillTbodyEvents(){
     if(eventsArr.length > 3){
-        eventsArr.slice(0,3)
+        eventsArr = eventsArr.slice(0,3)
     }
     for(let i = 0; i < eventsArr.length; i++) {
         tbodyOfEvents.innerHTML += '<tr>\n' +
@@ -99,7 +99,7 @@ function fillTbodyEvents(){
 
 function fillTbodyMindMaps(){
     if(mindmapsArr.length > 3){
-        mindmapsArr.slice(0,3)
+        mindmapsArr = mindmapsArr.slice(0,3)
     }
     for(let i = 0; i < mindmapsArr.length; i++) {
         tbodyOfMindmaps.innerHTML += '<tr>\n' +
