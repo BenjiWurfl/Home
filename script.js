@@ -111,11 +111,12 @@ function loadRecentProjectsIntoArrays(){
     // Project Query
     getDocs(projectsRef)
         .then(querySnapshot => {
-            querySnapshot.forEach(doc => {project
+            querySnapshot.forEach(doc => {
                 const projectData = doc.data();
-                let dueDate = projectData.dueDate.toDate();
 
-                const project = {id: doc.id, ...projectData, dueDate: dueDate};
+                console.log(projectData)
+
+                const project = {title: projectData.title, dueDate: projectData.dueDate.toDate()};
 
                 console.log(projectData)
 
