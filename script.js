@@ -150,8 +150,14 @@ function loadRecentProjectsIntoArrays() {
 
 }
 
-function loadAmounts(){
+function loadAmounts()
+{
     const user = auth.currentUser;
+
+    const projectsRef = collection(db, "users", user.uid, "projects");
+    const eventsRef = collection(db, "users", user.uid, "events");
+    const mindmapsRef = collection(db, "users", user.uid, "mindmaps");
+
     if (user) {
 
         const projectSnapshot = getCountFromServer(projectsRef);
