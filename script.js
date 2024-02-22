@@ -66,6 +66,7 @@ function loadDataIntoDOM(){
 }
 
 function fillTbodyProjects(){
+
     if(projectsArr.length > 3){
         projectsArr = projectsArr.slice(0,3)
     }
@@ -82,6 +83,18 @@ function fillTbodyProjects(){
 }
 
 function fillTbodyEvents(){
+
+    eventsArr = eventsArr.sort(function(a, b) {
+        // Konvertiere Timestamps in Datum-Objekte
+        const dateA = a.date.toDate();
+        const dateB = b.date.toDate();
+
+        // Vergleiche die Daten
+        if (dateA > dateB) return 1;
+        if (dateA < dateB) return -1;
+        return 0;
+    });
+
     if(eventsArr.length > 3){
         eventsArr = eventsArr.slice(0,3)
     }
