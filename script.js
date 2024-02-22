@@ -106,10 +106,14 @@ function loadRecentProjectsIntoArrays() {
     const user = auth.currentUser;
 
     const projectsRef = collection(db, "users", user.uid, "projects");
-    getDocs(projectsRef, orderBy("dueDate", "desc"), limit(3))
-        .then(querySnapshot => {
+    const eventsRef = collection(db, "users", user.uid, "events");
+    const mindmapsRef = collection(db, "users", user.uid, "mindmaps");
+
+    // Project Query
+    getDocs(projectsRef.orderBy("dueDate", "desc").limit(3))
+        .then(projectSnapshot => {
             projectsArr = []; // Clear the projects array before populating it again
-            querySnapshot.forEach(doc => {
+            projectSnapshot.forEach(doc => {
                 const projectData = doc.data();
                 let dueDate = projectData.dueDate.toDate();
                 const project = { id: doc.id, ...projectData, dueDate: dueDate };
@@ -118,14 +122,12 @@ function loadRecentProjectsIntoArrays() {
         })
         .catch(error => {
             console.error("Error loading projects: ", error);
-        });
-
-
-    const eventsRef = collection(db, "users", user.uid, "events");
-    getDocs(eventsRef, where("date", ">", new Date()), orderBy("date", "asc"), limit(3))
-        .then(querySnapshot => {
-            eventsArr = []; // Clear the projects array before populating it again
-            querySnapshot.forEach(doc => {
+        })
+        // Event Query
+        .then(() => getDocs(eventsRef.where("date", ">", new Date()).orderBy("date", "asc").limit(3)))
+        .then(eventSnapshot => {
+            eventsArr = []; // Clear the events array before populating it again
+            eventSnapshot.forEach(doc => {
                 const eventData = doc.data();
                 const event = { id: doc.id, ...eventData };
                 eventsArr.push(event);
@@ -133,22 +135,20 @@ function loadRecentProjectsIntoArrays() {
         })
         .catch(error => {
             console.error("Error loading events: ", error);
-        });
-
-    const mindmapsRef = collection(db, "users", user.uid, "mindmaps");
-    getDocs(mindmapsRef, limit(3))
-        .then(querySnapshot => {
-            mindmapsArr = []; // Clear the projects array before populating it again
-            querySnapshot.forEach(doc => {
+        })
+        // Mindmap Query
+        .then(() => getDocs(mindmapsRef.limit(3)))
+        .then(mindmapSnapshot => {
+            mindmapsArr = []; // Clear the mindmaps array before populating it again
+            mindmapSnapshot.forEach(doc => {
                 const mindmapData = doc.data();
-                const event = { id: doc.id, ...mindmapData };
-                mindmapsArr.push(event);
+                const mindmap = { id: doc.id, ...mindmapData };
+                mindmapsArr.push(mindmap);
             });
         })
         .catch(error => {
-            console.error("Error loading events: ", error);
+            console.error("Error loading mindmaps: ", error);
         });
-
 }
 
 async function loadAmounts()
