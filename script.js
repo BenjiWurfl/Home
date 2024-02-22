@@ -105,7 +105,7 @@ function loadRecentProjectsIntoArrays() {
     const user = auth.currentUser;
 
     const projectsRef = collection(db, "users", user.uid, "projects");
-    getDocs(projectsRef.orderBy("dueDate", "desc").limit(3))
+    getDocs(projectsRef, orderBy("dueDate", "desc"), limit(3))
         .then(querySnapshot => {
             projectsArr = []; // Clear the projects array before populating it again
             querySnapshot.forEach(doc => {
@@ -121,7 +121,7 @@ function loadRecentProjectsIntoArrays() {
 
 
     const eventsRef = collection(db, "users", user.uid, "events");
-    getDocs(eventsRef.where("date", ">", new Date()).orderBy("date", "asc").limit(3))
+    getDocs(eventsRef, where("date", ">", new Date()), orderBy("date", "asc"), limit(3))
         .then(querySnapshot => {
             eventsArr = []; // Clear the projects array before populating it again
             querySnapshot.forEach(doc => {
@@ -135,7 +135,7 @@ function loadRecentProjectsIntoArrays() {
         });
 
     const mindmapsRef = collection(db, "users", user.uid, "mindmaps");
-    getDocs(mindmapsRef.limit(3))
+    getDocs(mindmapsRef, limit(3))
         .then(querySnapshot => {
             mindmapsArr = []; // Clear the projects array before populating it again
             querySnapshot.forEach(doc => {
@@ -150,7 +150,7 @@ function loadRecentProjectsIntoArrays() {
 
 }
 
-function loadAmounts()
+async function loadAmounts()
 {
     const user = auth.currentUser;
 
@@ -160,14 +160,14 @@ function loadAmounts()
 
     if (user) {
 
-        const projectSnapshot = getCountFromServer(projectsRef);
-        amountOfProjects.innerHTML = projectSnapshot;
+        const projectSnapshot = await getCountFromServer(projectsRef);
+        amountOfProjects.innerHTML = projectSnapshot.data().count;
 
-        const eventSnapshot = getCountFromServer(eventsRef);
-        amountOfAppointments.innerHTML = eventSnapshot;
+        const eventSnapshot = await getCountFromServer(eventsRef);
+        amountOfAppointments.innerHTML = eventSnapshot.data().count;
 
-        const mindmapSnapshot = getCountFromServer(mindmapsRef);
-        amountOfMindmaps.innerHTML = mindmapSnapshot;
+        const mindmapSnapshot = await getCountFromServer(mindmapsRef);
+        amountOfMindmaps.innerHTML = mindmapSnapshot.data().count;
     }
 
 }
