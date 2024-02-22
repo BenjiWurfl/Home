@@ -56,7 +56,6 @@ const tbodyOfMindmaps= document.querySelector('.tbody-mindmaps')
 function loadDashboardData(){
     loadAmounts();
     loadRecentProjectsIntoArrays();
-    loadDataIntoDOM();
 
 }
 
@@ -69,6 +68,7 @@ function loadDataIntoDOM(){
 }
 
 function fillTbodyProjects(index){
+    console.log("Array: ", projectsArr[index])
     tbodyOfProjects.innerHTML += '<tr>\n' +
         '                                <td class="py-2 px-4 border-b border-b-gray-50">\n' +
         '                                        <span class="text-gray-600 text-sm font-medium ml-2 truncate">' + projectsArr[index].title + '</span>\n' +
@@ -113,13 +113,7 @@ function loadRecentProjectsIntoArrays(){
         .then(querySnapshot => {
             querySnapshot.forEach(doc => {
                 const projectData = doc.data();
-
-                console.log(projectData)
-
                 const project = {title: projectData.title, dueDate: projectData.dueDate.toDate()};
-
-                console.log(project)
-
 
                 projectsArr.push(project);
             });
@@ -152,7 +146,8 @@ function loadRecentProjectsIntoArrays(){
         })
         .catch(error => {
             console.error("Error loading mindmaps: ", error);
-        });
+        })
+        .then(() => loadDataIntoDOM());
 }
 
 async function loadAmounts() {
