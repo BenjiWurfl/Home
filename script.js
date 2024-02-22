@@ -1,3 +1,5 @@
+// Appointments count ändern
+
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 import {
     addDoc,
@@ -69,8 +71,8 @@ function fillTbodyProjects(){
 
     projectsArr = projectsArr.sort(function(a, b) {
         // Konvertiere Timestamps in Datum-Objekte
-        const dateA = a.dueDate.toDate();
-        const dateB = b.dueDate.toDate();
+        const dateA = a.dueDate;
+        const dateB = b.dueDate;
 
         // Vergleiche die Daten
         if (dateA < dateB) return 1;
@@ -108,6 +110,9 @@ function fillTbodyEvents(){
     eventsArr = eventsArr.filter(function (event) {
         return event.date.toDate().getDate() >= new Date().getDate();
     });
+
+    amountOfAppointments.innerHTML = eventsArr.length.toString();
+
 
     if(eventsArr.length > 3){
         eventsArr = eventsArr.slice(0,3)
@@ -201,9 +206,6 @@ async function loadAmounts() {
 
         const projectSnapshot = await getCountFromServer(projectsRef);
         amountOfProjects.innerHTML = projectSnapshot.data().count;
-
-        const eventSnapshot = await getCountFromServer(eventsRef);
-        amountOfAppointments.innerHTML = eventSnapshot.data().count;
 
         const mindmapSnapshot = await getCountFromServer(mindmapsRef);
         amountOfMindmaps.innerHTML = mindmapSnapshot.data().count;
