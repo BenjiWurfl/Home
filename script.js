@@ -102,7 +102,7 @@ function fillTbodyMindMaps(index){
         '                            </tr>'
 }
 
-function loadRecentProjectsIntoArrays() {
+function loadRecentProjectsIntoArrays(){
     const user = auth.currentUser;
 
     const projectsRef = collection(db, "users", user.uid, "projects");
@@ -111,14 +111,16 @@ function loadRecentProjectsIntoArrays() {
 
     // Project Query
     getDocs(projectsRef)
-        .then(projectSnapshot => {
-            projectsArr = []; // Clear the projects array before populating it again
-            projectSnapshot.forEach(doc => {
+        .then(querySnapshot => {
+            querySnapshot.forEach(doc => {
                 const projectData = doc.data();
                 let dueDate = projectData.dueDate.toDate();
-                const project = { id: doc.id, ...projectData, dueDate: dueDate };
+
+                const project = {id: doc.id, ...projectData, dueDate: dueDate};
+
                 projectsArr.push(project);
             });
+            updatePinnedItems();
         })
         .catch(error => {
             console.error("Error loading projects: ", error);
