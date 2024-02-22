@@ -118,7 +118,7 @@ function loadRecentProjectsIntoArrays(){
 
                 const project = {title: projectData.title, dueDate: projectData.dueDate.toDate()};
 
-                console.log(projectData)
+                console.log(project)
 
 
                 projectsArr.push(project);
