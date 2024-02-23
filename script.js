@@ -108,7 +108,7 @@ function fillTbodyEvents(){
     });
 
     eventsArr = eventsArr.filter(function (event) {
-        return event.date.toDate().getDate() >= new Date().getDate();
+        return event.date.toDate() >= new Date();
     });
 
     amountOfAppointments.innerHTML = eventsArr.length.toString();
